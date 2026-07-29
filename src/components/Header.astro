@@ -12,8 +12,13 @@ import { site } from "../lib/content";
     {site.nav.map((item) => (
       <a href={item.href} class="header__link">{item.label}</a>
     ))}
-    <a href="#contact" class="header__cta">
-      Book a call
+    <a
+      href={site.hero.primaryCta.href}
+      class="header__cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {site.hero.primaryCta.label}
       <span class="header__cta-dot" aria-hidden="true"></span>
     </a>
   </nav>
@@ -33,5 +38,10 @@ import { site } from "../lib/content";
   {site.nav.map((item) => (
     <a href={item.href} class="mobile-menu__link">{item.label}</a>
   ))}
-  <a href="#contact" class="mobile-menu__cta">Book a call</a>
+  <a
+    href={site.hero.primaryCta.href}
+    class="mobile-menu__cta"
+    target="_blank"
+    rel="noopener noreferrer"
+  >{site.hero.primaryCta.label}</a>
 </nav>

@@ -74,7 +74,12 @@ const jsonLd = JSON.stringify({
               {desc.before}{desc.match && <strong>{desc.match}</strong>}{desc.after}
             </p>
             <div class="hero__ctas" data-reveal>
-              <a href="#contact" class="btn-primary">
+              <a
+                href={site.hero.primaryCta.href}
+                class="btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {site.hero.primaryCta.label}
                 <span class="tri" aria-hidden="true"></span>
               </a>
