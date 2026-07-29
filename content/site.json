@@ -2,7 +2,7 @@
   "_readme": "EDIT THIS FILE TO MANAGE ALL CONTENT, IMAGES & VIDEOS. Put image/video files inside the public/assets/ folder and reference them here as /assets/filename.jpg. Video URLs can be YouTube links (https://youtube.com/watch?v=... or https://youtu.be/...), Instagram reel links, or direct .mp4 files. Leave an image field as empty string \"\" to show the styled placeholder instead. After editing, rebuild the site (npm run build).",
   "meta": {
     "title": "Abhishek Pandey · Senior Video Editor",
-    "description": "Senior Video Editor with 7+ years of experience. 50M+ views generated, ₹2 Crore raised through video. Premiere Pro & After Effects specialist crafting reels, YouTube edits, AI video and motion graphics.",
+    "description": "Senior Video Editor with 7+ years of experience and 50M+ views generated. Premiere Pro & After Effects specialist crafting reels, YouTube edits, AI video and motion graphics.",
     "siteUrl": "https://abhishekpandey.in",
     "ogImage": "/assets/og-image.jpg",
     "themeAccent": "#ff5a3c"
@@ -31,7 +31,7 @@
     "titleLine2": "Pandey",
     "tagline": "I make videos people can't scroll past and can't stop watching.",
     "taglineHighlight": "can't scroll past",
-    "description": "A decade turning raw footage into stories that move millions. Currently Senior Video Editor at Donate Kart, crafting in Premiere Pro & After Effects.",
+    "description": "Seven-plus years turning raw footage into stories that move millions. Currently Senior Video Editor at Donate Kart, crafting in Premiere Pro & After Effects.",
     "descriptionHighlight": "Donate Kart",
     "portrait": "https://cdn.shopify.com/s/files/1/0721/5644/6895/files/IMG_1019.jpg?v=1785261894",
     "portraitAlt": "Portrait of Abhishek Pandey, Senior Video Editor",
@@ -42,7 +42,7 @@
     },
     "marquee": [
       "50M+ VIEWS",
-      "₹2 CRORE RAISED",
+      "7+ YEARS EDITING",
       "PREMIERE PRO",
       "AFTER EFFECTS",
       "DAVINCI RESOLVE",
@@ -62,19 +62,13 @@
       "label": "Views Generated"
     },
     {
-      "num": 2,
-      "prefix": "₹",
-      "suffix": "Cr+",
-      "label": "Donations Raised"
-    },
-    {
-      "num": 10,
+      "num": 7,
       "prefix": "",
       "suffix": "+",
       "label": "Years Editing"
     },
     {
-      "num": 6,
+      "num": 10,
       "prefix": "",
       "suffix": "+",
       "label": "Major Brands"
