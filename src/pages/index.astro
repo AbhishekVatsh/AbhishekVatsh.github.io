@@ -1,0 +1,262 @@
+---
+import "../styles/fonts.css";
+import "../styles/global.css";
+import { site, splitHighlight } from "../lib/content";
+import Header from "../components/Header.astro";
+import Marquee from "../components/Marquee.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import CategoryIcon from "../components/CategoryIcon.astro";
+
+const tagline = splitHighlight(site.hero.tagline, site.hero.taglineHighlight);
+const desc = splitHighlight(site.hero.description, site.hero.descriptionHighlight);
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Abhishek Pandey",
+  jobTitle: "Senior Video Editor",
+  url: site.meta.siteUrl,
+  sameAs: site.contact.socials.map((s) => s.href),
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.meta.title}</title>
+    <meta name="description" content={site.meta.description} />
+    <meta name="theme-color" content="#0b0b0d" />
+    <link rel="canonical" href={site.meta.siteUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preload" href="/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-grotesk-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-mono-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={site.meta.title} />
+    <meta property="og:description" content={site.meta.description} />
+    <meta property="og:url" content={site.meta.siteUrl} />
+    <meta property="og:image" content={new URL(site.meta.ogImage, site.meta.siteUrl).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={site.meta.title} />
+    <meta name="twitter:description" content={site.meta.description} />
+    <meta name="twitter:image" content={new URL(site.meta.ogImage, site.meta.siteUrl).href} />
+
+    <script type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body style={`--acc:${site.meta.themeAccent}`}>
+    <div class="grain" aria-hidden="true"></div>
+    <Header />
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero" aria-label="Introduction">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__ghost display" aria-hidden="true">EDITOR</div>
+
+        <div class="hero__grid">
+          <div>
+            <div class="hero__badge" data-reveal>
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              {site.hero.badge}
+            </div>
+            <h1 class="display hero__title" data-reveal>
+              <span>{site.hero.titleLine1}</span> <span>{site.hero.titleLine2}</span>
+            </h1>
+            <p class="hero__tagline" data-reveal>
+              {tagline.before}{tagline.match && <em>{tagline.match}</em>}{tagline.after}
+            </p>
+            <p class="hero__desc" data-reveal>
+              {desc.before}{desc.match && <strong>{desc.match}</strong>}{desc.after}
+            </p>
+            <div class="hero__ctas" data-reveal>
+              <a href="#contact" class="btn-primary">
+                {site.hero.primaryCta.label}
+                <span class="tri" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__portrait-wrap" data-reveal>
+            <div class="hero__ring" aria-hidden="true"></div>
+            <div class="hero__portrait">
+              {
+                site.hero.portrait ? (
+                  <img
+                    src={site.hero.portrait}
+                    alt={site.hero.portraitAlt}
+                    width={360}
+                    height={360}
+                    fetchpriority="high"
+                  />
+                ) : (
+                  <span class="placeholder-label">[ DROP PORTRAIT ]</span>
+                )
+              }
+            </div>
+            <div class="hero__available">{site.hero.availableText}</div>
+          </div>
+        </div>
+
+        <Marquee items={site.hero.marquee} />
+      </section>
+
+      <!-- STATS -->
+      <section class="section section--lg" aria-label="Career statistics">
+        <div class="stats-grid">
+          {site.stats.map((s) => (
+            <div class="stat" data-reveal>
+              <div class="stat__value">
+                {s.prefix && <span class="stat__prefix">{s.prefix}</span>}
+                <span data-count={s.num} data-suffix={s.suffix}>{s.num}{s.suffix}</span>
+              </div>
+              <div class="stat__label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <WorkGrid
+        section={site.shortForm}
+        id="work"
+        gridClass="grid-short"
+        variant="tall"
+        placeholder="[ DROP REEL"
+      />
+      <WorkGrid
+        section={site.longForm}
+        gridClass="grid-long"
+        variant="wide"
+        placeholder="[ DROP THUMBNAIL"
+      />
+      <WorkGrid
+        section={site.podcasts}
+        gridClass="grid-ai"
+        variant="ai"
+        placeholder="[ DROP PODCAST"
+      />
+
+      <!-- CATEGORIES -->
+      <section class="section" aria-label="Editing categories">
+        <h2 class="display cat-title" data-reveal>
+          {site.categories.title}<span class="star">.</span>
+        </h2>
+        <p class="cat-note" data-reveal>{site.categories.note}</p>
+        <div class="grid-cats">
+          {site.categories.items.map((c, i) => (
+            <div data-reveal>
+              <div class="cat-card">
+                {c.image && (
+                  <img
+                    class="cat-card__img"
+                    src={c.image}
+                    alt={c.alt || c.name}
+                    loading="lazy"
+                    decoding="async"
+                    width={640}
+                    height={400}
+                  />
+                )}
+                <span class="cat-card__n">{String(i + 1).padStart(2, "0")}</span>
+                <CategoryIcon name={c.icon} />
+                <div class="cat-card__name">{c.name}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section id="clients" class="clients" aria-label="Clients">
+        <div class="clients__head">
+          <div class="kicker" data-reveal>{site.clients.kicker}</div>
+          <h2 class="display clients__title" data-reveal>{site.clients.title}</h2>
+        </div>
+        <div class="clients__track">
+          {
+            [false, true].map((hidden) => (
+              <div class="clients__group" aria-hidden={hidden || undefined}>
+                {site.clients.names.map((name) => (
+                  <span class="clients__name">{name}</span>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process" class="section" aria-label="Work process">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="kicker">{site.process.kicker}</div>
+            <h2 class="display section-title">{site.process.title}</h2>
+          </div>
+        </div>
+        <div class="grid-process">
+          {site.process.steps.map((w, i) => (
+            <div class="step" data-reveal>
+              <div class="step__n">{String(i + 1).padStart(2, "0")}</div>
+              <div class="step__title">{w.title}</div>
+              <div class="step__desc">{w.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact" aria-label="Contact">
+        <div class="contact__inner">
+          <div class="kicker contact__kicker" data-reveal>{site.contact.kicker}</div>
+          <h2 class="display contact__title" data-reveal>
+            {site.contact.titleLine1}<br />
+            {site.contact.titleLine2} <em>{site.contact.titleHighlight}</em>
+          </h2>
+          <div class="contact__ctas" data-reveal>
+            <a
+              href={site.contact.primaryCta.href}
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.contact.primaryCta.label}
+              <span class="tri" aria-hidden="true"></span>
+            </a>
+            <a
+              href={site.contact.secondaryCta.href}
+              class="btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.contact.secondaryCta.label}
+            </a>
+          </div>
+          <div class="contact__socials" data-reveal>
+            {site.contact.socials.map((s) => (
+              <a
+                href={s.href}
+                class="contact__social"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>{site.footer.left}</span>
+      <span>{site.footer.right} <span class="star">✦</span></span>
+    </footer>
+
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

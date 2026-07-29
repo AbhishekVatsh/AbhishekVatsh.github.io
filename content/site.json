@@ -1,0 +1,286 @@
+{
+  "_readme": "EDIT THIS FILE TO MANAGE ALL CONTENT, IMAGES & VIDEOS. Put image/video files inside the public/assets/ folder and reference them here as /assets/filename.jpg. Video URLs can be YouTube links (https://youtube.com/watch?v=... or https://youtu.be/...), Instagram reel links, or direct .mp4 files. Leave an image field as empty string \"\" to show the styled placeholder instead. After editing, rebuild the site (npm run build).",
+  "meta": {
+    "title": "Abhishek Pandey · Senior Video Editor",
+    "description": "Senior Video Editor with 7+ years of experience. 50M+ views generated, ₹2 Crore raised through video. Premiere Pro & After Effects specialist crafting reels, YouTube edits, AI video and motion graphics.",
+    "siteUrl": "https://abhishekpandey.in",
+    "ogImage": "/assets/og-image.jpg",
+    "themeAccent": "#ff5a3c"
+  },
+  "brand": {
+    "logoText": "ABHISHEK",
+    "logoSuffix": ".EDIT"
+  },
+  "nav": [
+    {
+      "label": "WORK",
+      "href": "#work"
+    },
+    {
+      "label": "CLIENTS",
+      "href": "#clients"
+    },
+    {
+      "label": "PROCESS",
+      "href": "#process"
+    }
+  ],
+  "hero": {
+    "badge": "SENIOR VIDEO EDITOR · 7+ YEARS",
+    "titleLine1": "Abhishek",
+    "titleLine2": "Pandey",
+    "tagline": "I make videos people can't scroll past and can't stop watching.",
+    "taglineHighlight": "can't scroll past",
+    "description": "A decade turning raw footage into stories that move millions. Currently Senior Video Editor at Donate Kart, crafting in Premiere Pro & After Effects.",
+    "descriptionHighlight": "Donate Kart",
+    "portrait": "https://cdn.shopify.com/s/files/1/0721/5644/6895/files/IMG_1019.jpg?v=1785261894",
+    "portraitAlt": "Portrait of Abhishek Pandey, Senior Video Editor",
+    "availableText": "AVAILABLE FOR WORK",
+    "primaryCta": {
+      "label": "Book a call",
+      "href": "https://wa.me/917044528794"
+    },
+    "marquee": [
+      "50M+ VIEWS",
+      "₹2 CRORE RAISED",
+      "PREMIERE PRO",
+      "AFTER EFFECTS",
+      "DAVINCI RESOLVE",
+      "PHOTOSHOP",
+      "ILLUSTRATOR",
+      "REMOTION"
+      "HIGGSFIELD",
+      "ADOBE AUDITION",
+      "FINAL CUT PRO"
+    ]
+  },
+  "stats": [
+    {
+      "num": 50,
+      "prefix": "",
+      "suffix": "M+",
+      "label": "Views Generated"
+    },
+    {
+      "num": 2,
+      "prefix": "₹",
+      "suffix": "Cr+",
+      "label": "Donations Raised"
+    },
+    {
+      "num": 10,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Years Editing"
+    },
+    {
+      "num": 6,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Major Brands"
+    }
+  ],
+  "shortForm": {
+    "kicker": "01 · REELS & SHORTS",
+    "title": "Short Form",
+    "note": "Scroll-stopping hooks built for Reels, Shorts & TikTok.",
+    "items": [
+      {
+        "tag": "REELS",
+        "name": "GS x Clip 4",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/shorts/k3Ta2vc5VqQ?feature=share",
+        "alt": "Hook-first vertical reel edit thumbnail"
+      },
+      {
+        "tag": "REELS",
+        "name": "GS x Goat Life Teaser Reel",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/shorts/C7beb8JMKws?feature=share",
+        "alt": "Fast-cut explainer short thumbnail"
+      },
+      {
+        "tag": "REELS",
+        "name": "Raj Shamani x Amir Reel - Body Transformation",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/shorts/KisKElmeDKg?feature=share",
+        "alt": "Trend-driven story TikTok thumbnail"
+      },
+      {
+        "tag": "REELS",
+        "name": "DevOps Reel",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/shorts/nRtDRZJqXZA?feature=share",
+        "alt": "Punchy product promo reel thumbnail"
+      },
+      {
+        "tag": "REELS",
+        "name": "Dezerv x Portfolio Breakdown Ep 8 Reel",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/shorts/fcaFdvGexN4?feature=share",
+        "alt": "Cinematic brand story reel thumbnail"
+      }
+    ]
+  },
+  "longForm": {
+    "kicker": "02 · YOUTUBE & BRANDED",
+    "title": "Long Form",
+    "note": "Narrative-driven edits that hold attention past the 10-minute mark.",
+    "items": [
+      {
+        "tag": "YOUTUBE",
+        "name": "Brandon x Channel Crawler",
+        "thumbnail": "https://img.youtube.com/vi/ggjXIILgrik/maxresdefault.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=ggjXIILgrik",
+        "alt": "Brandon x Channel Crawler YouTube video thumbnail"
+      },
+      {
+        "tag": "BRANDED",
+        "name": "Faved x Channel Crawler",
+        "thumbnail": "https://img.youtube.com/vi/WsVqtNY2OJ8/maxresdefault.jpg",
+        "videoUrl": "https://www.youtube.com/watch?v=WsVqtNY2OJ8",
+        "alt": "Faved x Channel Crawler YouTube video thumbnail"
+      }
+    ]
+  },
+  "podcasts": {
+    "kicker": "03 · PODCASTS",
+    "title": "Podcasts",
+    "note": "Long-form conversations, edited to hold attention.",
+    "items": [
+      {
+        "tag": "PODCAST",
+        "name": "Mesa x Swish",
+        "thumbnail": "",
+        "videoUrl": "https://www.youtube.com/watch?v=lmwmMWurb6I",
+        "alt": "Full podcast episode edit thumbnail"
+      },
+      {
+        "tag": "PODCAST",
+        "name": "Exploring Minds x Ajay Piramal",
+        "thumbnail": "",
+        "videoUrl": "https://youtu.be/At2LsbduEU4",
+        "alt": "Multi-cam podcast interview thumbnail"
+      },
+      {
+        "tag": "CLIPS",
+        "name": "Exploring Minds x Aadit Palicha",
+        "thumbnail": "",
+        "videoUrl": "https://youtu.be/N6jhMWbL-Oo",
+        "alt": "Viral podcast clips thumbnail"
+      },
+      {
+        "tag": "TRAILER",
+        "name": "Dezerv x Tyaani Jewellers",
+        "thumbnail": "",
+        "videoUrl": "https://youtu.be/1G8DVk2UMl4",
+        "alt": "Podcast episode trailer thumbnail"
+      }
+    ]
+  },
+  "categories": {
+    "title": "I Edit",
+    "note": "Formats I've mastered across a decade of edits.",
+    "items": [
+      {
+        "name": "Podcasts",
+        "image": "",
+        "alt": "Podcast editing",
+        "icon": "podcast"
+      },
+      {
+        "name": "Storytelling",
+        "image": "",
+        "alt": "Storytelling video editing",
+        "icon": "story"
+      },
+      {
+        "name": "Ads & Promos",
+        "image": "",
+        "alt": "Ads and promo editing",
+        "icon": "ads"
+      },
+      {
+        "name": "Social / Reels",
+        "image": "",
+        "alt": "Social media and reels editing",
+        "icon": "social"
+      }
+    ]
+  },
+  "clients": {
+    "kicker": "TRUSTED BY",
+    "title": "For Brands & Creators",
+    "names": [
+      "Zerodha",
+      "Zero1 Networks",
+      "Dezerv Media",
+      "YouTube for Brands",
+      "BSF",
+      "Exploring Minds",
+      "Govt. of India"
+    ]
+  },
+  "process": {
+    "kicker": "HOW I WORK",
+    "title": "The Workflow",
+    "steps": [
+      {
+        "title": "Brief & Vision",
+        "desc": "Align on goals, tone and the story we want to tell."
+      },
+      {
+        "title": "Assembly",
+        "desc": "Ingest footage, sync audio, build the rough cut."
+      },
+      {
+        "title": "Story Edit",
+        "desc": "Shape pacing, hooks and narrative rhythm."
+      },
+      {
+        "title": "Sound & Color",
+        "desc": "Mix, master and grade for a cinematic feel."
+      },
+      {
+        "title": "Motion & VFX",
+        "desc": "Graphics, kinetic type and finishing touches."
+      },
+      {
+        "title": "Final Polish",
+        "desc": "Feedback rounds and delivery in every format."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "LET'S BUILD SOMETHING WORTH WATCHING",
+    "titleLine1": "Got footage?",
+    "titleLine2": "Let's make it",
+    "titleHighlight": "move.",
+    "primaryCta": {
+      "label": "Book a call",
+      "href": "https://wa.me/918756057879"
+    },
+    "secondaryCta": {
+      "label": "WhatsApp me",
+      "href": "https://wa.me/918756057879"
+    },
+    "socials": [
+      {
+        "label": "INSTAGRAM / @Abhisheks",
+        "href": "https://instagram.com/Abhisheks"
+      },
+      {
+        "label": "WHATSAPP / +91 87560 57879",
+        "href": "https://wa.me/918756057879"
+      },
+      {
+        "label": "LINKEDIN / abhishekvatsh",
+        "href": "https://linkedin.com/in/abhishekvatsh"
+      }
+    ]
+  },
+  "footer": {
+    "left": "© 2026 ABHISHEK PANDEY · SENIOR VIDEO EDITOR",
+    "right": "CRAFTED FRAME BY FRAME"
+  }
+}

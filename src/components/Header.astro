@@ -1,0 +1,37 @@
+---
+import { site } from "../lib/content";
+---
+
+<header class="header">
+  <a href="#top" class="header__logo">
+    <span class="header__dot" aria-hidden="true"></span>
+    <span>{site.brand.logoText}<span class="acc">{site.brand.logoSuffix}</span></span>
+  </a>
+
+  <nav class="header__nav" aria-label="Main navigation">
+    {site.nav.map((item) => (
+      <a href={item.href} class="header__link">{item.label}</a>
+    ))}
+    <a href="#contact" class="header__cta">
+      Book a call
+      <span class="header__cta-dot" aria-hidden="true"></span>
+    </a>
+  </nav>
+
+  <button
+    type="button"
+    class="header__burger"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+  {site.nav.map((item) => (
+    <a href={item.href} class="mobile-menu__link">{item.label}</a>
+  ))}
+  <a href="#contact" class="mobile-menu__cta">Book a call</a>
+</nav>

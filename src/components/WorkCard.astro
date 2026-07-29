@@ -1,0 +1,68 @@
+---
+import type { WorkItem } from "../lib/content";
+import { parseVideoUrl } from "../lib/video";
+
+interface Props {
+  item: WorkItem;
+  variant: "tall" | "wide" | "ai";
+  placeholder: string;
+}
+
+const { item, variant, placeholder } = Astro.props;
+const video = parseVideoUrl(item.videoUrl);
+
+const VARIANT_CLASS = {
+  tall: "work-card--tall",
+  wide: "work-card--wide",
+  ai: "work-card--wide work-card--ai",
+} as const;
+const cls = `work-card ${VARIANT_CLASS[variant]}`;
+
+// Which wrapper element the card needs:
+// - external link (e.g. Instagram) → <a>
+// - playable (YouTube / video file)  → <button>, main.ts swaps in the player
+// - no video yet                     → plain <div>
+const Tag = video.kind === "external" ? "a" : video.kind === "none" ? "div" : "button";
+const attrs =
+  Tag === "a"
+    ? {
+        href: video.href,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        "aria-label": `Watch: ${item.name}`,
+      }
+    : Tag === "button"
+      ? {
+          type: "button",
+          "data-embed": video.kind === "youtube" ? video.embedUrl : undefined,
+          "data-file": video.kind === "file" ? video.embedUrl : undefined,
+          "aria-label": `Play video: ${item.name}`,
+        }
+      : {};
+---
+
+<Tag class={cls} {...attrs}>
+  {
+    item.thumbnail ? (
+      <img
+        class="work-card__thumb"
+        src={item.thumbnail}
+        alt={item.alt || item.name}
+        loading="lazy"
+        decoding="async"
+        width={variant === "tall" ? 540 : 1280}
+        height={variant === "tall" ? 960 : 720}
+      />
+    ) : (
+      <span class="work-card__thumb-label">{placeholder}</span>
+    )
+  }
+  <span class="work-card__shade" aria-hidden="true"></span>
+  <span class="work-card__play" aria-hidden="true">
+    <span class="play-btn"><span class="tri"></span></span>
+  </span>
+  <span class="work-card__meta">
+    <span class="work-card__tag">{item.tag}</span>
+    <span class="work-card__name">{item.name}</span>
+  </span>
+</Tag>

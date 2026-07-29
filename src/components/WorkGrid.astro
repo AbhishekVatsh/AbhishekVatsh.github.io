@@ -1,0 +1,35 @@
+---
+import type { WorkSection } from "../lib/content";
+import WorkCard from "./WorkCard.astro";
+
+interface Props {
+  section: WorkSection;
+  id?: string;
+  gridClass: string;
+  variant: "tall" | "wide" | "ai";
+  placeholder: string;
+}
+
+const { section, id, gridClass, variant, placeholder } = Astro.props;
+---
+
+<section id={id} class="section" aria-label={section.title}>
+  <div class="section-head" data-reveal>
+    <div>
+      <div class="kicker">{section.kicker}</div>
+      <h2 class="display section-title">{section.title}</h2>
+    </div>
+    <p class="section-note">{section.note}</p>
+  </div>
+  <div class={gridClass}>
+    {section.items.map((item, i) => (
+      <div data-reveal>
+        <WorkCard
+          item={item}
+          variant={variant}
+          placeholder={`${placeholder} ${String(i + 1).padStart(2, "0")} ]`}
+        />
+      </div>
+    ))}
+  </div>
+</section>
