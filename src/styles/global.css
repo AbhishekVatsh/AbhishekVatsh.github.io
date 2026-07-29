@@ -576,10 +576,24 @@ video {
 }
 
 /* ---------- Work cards ---------- */
+/* Horizontally scrollable reels row */
 .grid-short {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(220px, 18vw, 285px);
   gap: clamp(12px, 1.5vw, 20px);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  /* Top padding gives the hover-lift room so card tops aren't clipped
+     by this scroll container */
+  padding-top: 12px;
+  padding-bottom: 16px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--acc) 55%, transparent) transparent;
+}
+.grid-short > * {
+  scroll-snap-align: start;
 }
 .grid-long {
   display: grid;
@@ -914,7 +928,7 @@ video {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .grid-short { grid-template-columns: repeat(3, 1fr); }
+  .grid-short { grid-auto-columns: clamp(200px, 30vw, 260px); }
   .grid-process { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -935,7 +949,7 @@ video {
   }
   .hero__ghost { display: none; }
   .marquee { margin-top: 56px; }
-  .grid-short { grid-template-columns: repeat(2, 1fr); }
+  .grid-short { grid-auto-columns: min(62vw, 250px); }
   .grid-long { grid-template-columns: 1fr; }
   .grid-ai { grid-template-columns: 1fr; }
   .grid-cats { grid-template-columns: repeat(2, 1fr); }
@@ -1008,4 +1022,108 @@ video {
   border: 0;
   background: #000;
   object-fit: cover;
+}
+
+/* Muted autoplay preview: clicks pass through to the card so the full
+   sound-on player can still be opened */
+.media-preview {
+  pointer-events: none;
+}
+.media-preview iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.is-previewing .work-card__play,
+.is-previewing .work-card__thumb-label {
+  opacity: 0;
+}
+
+/* ---------- Scroll-linked horizontal workflow (desktop) ---------- */
+.process__cursor {
+  display: none;
+}
+@media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
+  .process {
+    height: 170vh;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .process__pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .process__pin .section-head {
+    margin-bottom: 44px;
+  }
+  .process__track {
+    position: relative;
+    display: flex;
+    width: max-content;
+    gap: clamp(28px, 3.5vw, 56px);
+    padding-top: 34px;
+    will-change: transform;
+  }
+  /* Continuous timeline rail... */
+  .process__track::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+  /* ...filled with accent up to the current scroll position */
+  .process__track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: calc(var(--p, 0) * 100%);
+    background: var(--acc);
+  }
+  /* The pointer travelling along the rail as the page scrolls */
+  .process__cursor {
+    display: block;
+    position: absolute;
+    top: -6px;
+    left: calc(var(--p, 0) * 100%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--acc);
+    transform: translateX(-50%);
+    box-shadow:
+      0 0 0 6px color-mix(in srgb, var(--acc) 25%, transparent),
+      0 0 18px var(--acc);
+    z-index: 1;
+  }
+  .process__track .step {
+    position: relative;
+    width: clamp(250px, 23vw, 330px);
+    flex-shrink: 0;
+    min-height: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+  /* Station markers sitting on the rail at each step */
+  .process__track .step::before {
+    content: "";
+    position: absolute;
+    top: -37px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #55555c;
+  }
 }

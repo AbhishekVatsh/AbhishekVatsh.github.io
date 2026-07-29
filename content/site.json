@@ -48,7 +48,7 @@
       "DAVINCI RESOLVE",
       "PHOTOSHOP",
       "ILLUSTRATOR",
-      "REMOTION"
+      "REMOTION",
       "HIGGSFIELD",
       "ADOBE AUDITION",
       "FINAL CUT PRO"
@@ -119,6 +119,20 @@
         "thumbnail": "",
         "videoUrl": "https://www.youtube.com/shorts/fcaFdvGexN4?feature=share",
         "alt": "Cinematic brand story reel thumbnail"
+      },
+      {
+        "tag": "REELS",
+        "name": "VM x Abhishek",
+        "thumbnail": "",
+        "videoUrl": "https://youtube.com/shorts/ZYAF1JlL3-Q",
+        "alt": "VM x Abhishek reel thumbnail"
+      },
+      {
+        "tag": "REELS",
+        "name": "Teaser Reel Edit For Create Wealth x Tyaani Jewellers",
+        "thumbnail": "",
+        "videoUrl": "https://youtube.com/shorts/_mJJH9Ef8LE?feature=share",
+        "alt": "Create Wealth x Tyaani Jewellers teaser reel thumbnail"
       }
     ]
   },
@@ -175,6 +189,20 @@
         "thumbnail": "",
         "videoUrl": "https://youtu.be/1G8DVk2UMl4",
         "alt": "Podcast episode trailer thumbnail"
+      },
+      {
+        "tag": "PODCAST",
+        "name": "GS x Bare Face Podcast",
+        "thumbnail": "",
+        "videoUrl": "https://youtu.be/Hmodz8faApY",
+        "alt": "GS x Bare Face Podcast thumbnail"
+      },
+      {
+        "tag": "PODCAST",
+        "name": "Gs x Dario Amodei",
+        "thumbnail": "",
+        "videoUrl": "https://youtu.be/9Ci1JtBcJbI",
+        "alt": "Gs x Dario Amodei podcast thumbnail"
       }
     ]
   },
@@ -258,24 +286,24 @@
     "titleHighlight": "move.",
     "primaryCta": {
       "label": "Book a call",
-      "href": "https://wa.me/918756057879"
+      "href": "https://wa.me/917044528794"
     },
     "secondaryCta": {
       "label": "WhatsApp me",
-      "href": "https://wa.me/918756057879"
+      "href": "https://wa.me/917044528794"
     },
     "socials": [
       {
-        "label": "INSTAGRAM / @Abhisheks",
-        "href": "https://instagram.com/Abhisheks"
+        "label": "INSTAGRAM / @TheAbhishekVatsh",
+        "href": "https://instagram.com/TheAbhishekVatsh"
       },
       {
-        "label": "WHATSAPP / +91 87560 57879",
-        "href": "https://wa.me/918756057879"
+        "label": "WHATSAPP / +91 70445 28794",
+        "href": "https://wa.me/917044528794"
       },
       {
-        "label": "LINKEDIN / abhishekvatsh",
-        "href": "https://linkedin.com/in/abhishekvatsh"
+        "label": "LINKEDIN / TheAbhishekVatsh",
+        "href": "https://linkedin.com/in/TheAbhishekVatsh"
       }
     ]
   },

@@ -127,6 +127,7 @@ const jsonLd = JSON.stringify({
         gridClass="grid-short"
         variant="tall"
         placeholder="[ DROP REEL"
+        autoplay
       />
       <WorkGrid
         section={site.longForm}
@@ -191,21 +192,24 @@ const jsonLd = JSON.stringify({
       </section>
 
       <!-- PROCESS -->
-      <section id="process" class="section" aria-label="Work process">
-        <div class="section-head" data-reveal>
-          <div>
-            <div class="kicker">{site.process.kicker}</div>
-            <h2 class="display section-title">{site.process.title}</h2>
-          </div>
-        </div>
-        <div class="grid-process">
-          {site.process.steps.map((w, i) => (
-            <div class="step" data-reveal>
-              <div class="step__n">{String(i + 1).padStart(2, "0")}</div>
-              <div class="step__title">{w.title}</div>
-              <div class="step__desc">{w.desc}</div>
+      <section id="process" class="section process" aria-label="Work process">
+        <div class="process__pin">
+          <div class="section-head" data-reveal>
+            <div>
+              <div class="kicker">{site.process.kicker}</div>
+              <h2 class="display section-title">{site.process.title}</h2>
             </div>
-          ))}
+          </div>
+          <div class="grid-process process__track">
+            <div class="process__cursor" aria-hidden="true"></div>
+            {site.process.steps.map((w, i) => (
+              <div class="step" data-reveal>
+                <div class="step__n">{String(i + 1).padStart(2, "0")}</div>
+                <div class="step__title">{w.title}</div>
+                <div class="step__desc">{w.desc}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

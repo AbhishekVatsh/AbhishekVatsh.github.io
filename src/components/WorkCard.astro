@@ -6,10 +6,14 @@ interface Props {
   item: WorkItem;
   variant: "tall" | "wide" | "ai";
   placeholder: string;
+  /** Autoplay a muted looping preview once the card scrolls into view. */
+  autoplay?: boolean;
 }
 
-const { item, variant, placeholder } = Astro.props;
+const { item, variant, placeholder, autoplay = false } = Astro.props;
 const video = parseVideoUrl(item.videoUrl);
+// No thumbnail set → fall back to the video's own first-frame poster.
+const thumb = item.thumbnail || video.thumbUrl;
 
 const VARIANT_CLASS = {
   tall: "work-card--tall",
@@ -36,6 +40,7 @@ const attrs =
           type: "button",
           "data-embed": video.kind === "youtube" ? video.embedUrl : undefined,
           "data-file": video.kind === "file" ? video.embedUrl : undefined,
+          "data-autoplay": autoplay && video.previewUrl ? video.previewUrl : undefined,
           "aria-label": `Play video: ${item.name}`,
         }
       : {};
@@ -43,10 +48,10 @@ const attrs =
 
 <Tag class={cls} {...attrs}>
   {
-    item.thumbnail ? (
+    thumb ? (
       <img
         class="work-card__thumb"
-        src={item.thumbnail}
+        src={thumb}
         alt={item.alt || item.name}
         loading="lazy"
         decoding="async"

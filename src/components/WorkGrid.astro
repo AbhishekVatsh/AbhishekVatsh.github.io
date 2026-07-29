@@ -8,9 +8,11 @@ interface Props {
   gridClass: string;
   variant: "tall" | "wide" | "ai";
   placeholder: string;
+  /** Autoplay muted previews for cards in this section. */
+  autoplay?: boolean;
 }
 
-const { section, id, gridClass, variant, placeholder } = Astro.props;
+const { section, id, gridClass, variant, placeholder, autoplay = false } = Astro.props;
 ---
 
 <section id={id} class="section" aria-label={section.title}>
@@ -28,6 +30,7 @@ const { section, id, gridClass, variant, placeholder } = Astro.props;
           item={item}
           variant={variant}
           placeholder={`${placeholder} ${String(i + 1).padStart(2, "0")} ]`}
+          autoplay={autoplay}
         />
       </div>
     ))}
