@@ -1041,13 +1041,13 @@ video {
   opacity: 0;
 }
 
-/* ---------- Scroll-linked horizontal workflow (desktop) ---------- */
+/* ---------- Scroll-linked horizontal workflow ---------- */
 .process__cursor {
   display: none;
 }
-@media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .process {
-    height: 170vh;
+    height: 170vh; /* fallback — main.ts sets the exact height from the track length */
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -1055,6 +1055,7 @@ video {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: 100svh; /* stable on mobile while the browser UI collapses */
     display: flex;
     flex-direction: column;
     justify-content: center;

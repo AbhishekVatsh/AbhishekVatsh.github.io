@@ -200,18 +200,21 @@ const proc = document.querySelector<HTMLElement>(".process");
 const procPin = document.querySelector<HTMLElement>(".process__pin");
 const procTrack = document.querySelector<HTMLElement>(".process__track");
 if (proc && procPin && procTrack && !reduceMotion) {
-  const mq = window.matchMedia("(min-width: 861px)");
   let raf = 0;
   const update = () => {
     raf = 0;
-    if (!mq.matches) {
+    const dist = procTrack.scrollWidth - procPin.clientWidth;
+    if (dist <= 0) {
+      // Reduced-motion / fallback grid layout — no horizontal travel.
       procTrack.style.transform = "";
       procTrack.style.removeProperty("--p");
+      proc.style.height = "";
       return;
     }
-    const dist = procTrack.scrollWidth - procPin.clientWidth;
-    const total = proc.offsetHeight - window.innerHeight;
-    if (dist <= 0 || total <= 0) return;
+    // 1px of page scroll = 1px of horizontal travel.
+    proc.style.height = `${procPin.offsetHeight + dist}px`;
+    const total = proc.offsetHeight - procPin.offsetHeight;
+    if (total <= 0) return;
     const p = Math.min(1, Math.max(0, -proc.getBoundingClientRect().top / total));
     procTrack.style.transform = `translate3d(${-p * dist}px, 0, 0)`;
     // Drives the timeline progress fill and the moving pointer (see CSS).
